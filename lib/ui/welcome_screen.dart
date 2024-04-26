@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:weather_app/models/city.dart';
 import 'package:weather_app/ui/home.dart';
 
@@ -30,69 +31,76 @@ class _WelcomeState extends State<Welcome> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        centerTitle: true,
       ),
-      body: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: cities.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            margin: const EdgeInsets.only(left: 10, top: 20, right: 10),
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            height: size.height * .08,
-            width: size.width,
-            decoration: BoxDecoration(
-              border: selectedCity == cities[index]
-                  ? Border.all(
-                      color: const Color.fromARGB(255, 136, 71, 148).withOpacity(.6),
-                      width: 2,
-                    )
-                  : Border.all(color: Colors.white),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              boxShadow: [
-                BoxShadow(
-                  color: const Color.fromARGB(255, 136, 71, 148).withOpacity(.2),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 3),
-                )
-              ],
-            ),
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      if (selectedCity == cities[index]) {
-                        selectedCity = null;
-                      } else {
-                        selectedCity = cities[index];
-                      }
-                      cities.forEach((city) => city.isSelected = false);
-                      if (selectedCity != null) {
-                        selectedCity!.isSelected = true;
-                      }
-                    });
-                  },
-                  child: Image.asset(
-                    selectedCity == cities[index] ? 'assets/checked.png' : 'assets/unchecked.png',
-                    width: 30,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage('assets/background.jpg'), fit: BoxFit.cover)
+        ),
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: cities.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              margin: const EdgeInsets.only(left: 10, top: 20, right: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              height: size.height * .08,
+              width: size.width,
+              decoration: BoxDecoration(
+                border: selectedCity == cities[index]
+                    ? Border.all(
+                        color: const Color.fromARGB(255, 136, 71, 148).withOpacity(.6),
+                        width: 2,
+                      )
+                    : Border.all(color: Colors.white),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color.fromARGB(255, 136, 71, 148).withOpacity(.2),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  )
+                ],
+              ),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (selectedCity == cities[index]) {
+                          selectedCity = null;
+                        } else {
+                          selectedCity = cities[index];
+                        }
+                        cities.forEach((city) => city.isSelected = false);
+                        if (selectedCity != null) {
+                          selectedCity!.isSelected = true;
+                        }
+                      });
+                    },
+                    child: Image.asset(
+                      selectedCity == cities[index] ? 'assets/checked.png' : 'assets/unchecked.png',
+                      width: 30,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  cities[index].city,
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 16,
-                    color: selectedCity == cities[index]
-                        ? const Color.fromARGB(255, 136, 71, 148)
-                        : Colors.black54,
-                  ),
-                )
-              ],
-            ),
-          );
-        },
+                  const SizedBox(width: 10),
+                  Text(
+                    cities[index].city,
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: selectedCity == cities[index]
+                          ? Color.fromARGB(255, 237, 134, 255)
+                          : Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 136, 71, 148),

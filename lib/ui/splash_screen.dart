@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:weather_app/ui/welcome_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -22,7 +21,17 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset("assets/splash.json"),
+            Image.asset("assets/splash.png"),
+            const SizedBox(height: 20),
+            const Text(
+              "Discover the weather in your city", 
+              style: TextStyle(
+                color: Colors.white, 
+                fontSize: 24, fontWeight: FontWeight.bold, 
+                fontFamily: 'Montserrat'
+              ),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 20),
             TextButton(
               onPressed: () {
