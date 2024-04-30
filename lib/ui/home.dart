@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/models/city.dart';
 import 'package:weather_app/services/weather_service.dart';
+import 'package:weather_app/ui/week_forecast_screen.dart';
 import 'package:weather_app/ui/welcome_screen.dart';
 
 class Home extends StatefulWidget {
@@ -165,7 +166,12 @@ class _HomeState extends State<Home> {
                               const SizedBox(height: 20),
                               TextButton.icon(
                                 onPressed: () {
-                                  // Your action here
+                                   Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => WeeklyForecast(city: widget.city),
+                                      ),
+                                    );
                                 },
                                 icon: const Icon(Icons.arrow_forward, color: Colors.white),
                                 iconAlignment: IconAlignment.end,
@@ -177,7 +183,7 @@ class _HomeState extends State<Home> {
                                   child: const Text(
                                     'Next days',
                                     style: TextStyle(
-                                      color: Colors.white, // This color will be ignored due to ShaderMask
+                                      color: Colors.white,
                                       fontSize: 24,
                                     ),
                                   ),
