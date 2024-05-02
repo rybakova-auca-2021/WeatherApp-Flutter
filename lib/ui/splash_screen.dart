@@ -7,7 +7,6 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {    
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -36,7 +35,15 @@ class SplashScreen extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: const Center(
-                  child: Text('Get started', style: TextStyle(color: Colors.black, fontSize: 18),),
+                  child: Text(
+                    'Get started',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               ),
             ),

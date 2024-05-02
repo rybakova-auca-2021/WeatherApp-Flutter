@@ -75,11 +75,11 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 4),
                 const Text(
                   'Sunrise',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Montserrat'),
                 ),
                 Text(
                   sunriseTime,
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  style: const TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Montserrat'),
                 ),
               ],
             ),
@@ -91,11 +91,11 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 4),
                 const Text(
                   'Sunset',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Montserrat'),
                 ),
                 Text(
                   sunsetTime,
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  style: const TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Montserrat'),
                 ),
               ],
             ),
@@ -129,6 +129,7 @@ class _HomeState extends State<Home> {
                   fontSize: 30,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'Montserrat'
                 ),
               ),
             ),
@@ -150,18 +151,19 @@ class _HomeState extends State<Home> {
                                   fontSize: 84,
                                   color: Color.fromARGB(255, 255, 246, 255),
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat'
                                 ),
                               ),
                               const SizedBox(height: 90),
                               Text(
                                 '${_weatherData!['weather'][0]['description']}',
                                 style: const TextStyle(
-                                    fontSize: 30, color: Colors.white),
+                                    fontSize: 30, color: Colors.white, fontFamily: 'Montserrat'),
                               ),
                               Text(
                                 _getFormattedDate(_weatherData!['dt']),
                                 style: const TextStyle(
-                                    fontSize: 14, color: Colors.white),
+                                    fontSize: 14, color: Colors.white, fontFamily: 'Montserrat'),
                               ),
                               const SizedBox(height: 20),
                               TextButton.icon(
@@ -185,6 +187,7 @@ class _HomeState extends State<Home> {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 24,
+                                      fontFamily: 'Montserrat'
                                     ),
                                   ),
                                 ),
@@ -203,16 +206,22 @@ class _HomeState extends State<Home> {
                                       ),
                                       const SizedBox(height: 8),
                                       Text(
-                                        '${_weatherData!['main']['humidity']}%',
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
+                                      '${_weatherData!['main']['humidity']}%',
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Montserrat'
+                                        ),
                                       ),
-                                      const Text("Humidity",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12))
+                                      const Text(
+                                        "Humidity",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontFamily: 'Montserrat'
+                                          )
+                                        )
                                     ],
                                   ),
                                   const SizedBox(width: 70),
@@ -226,14 +235,19 @@ class _HomeState extends State<Home> {
                                       Text(
                                         '${_weatherData!['wind']['speed']}km/h',
                                         style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Montserrat'
+                                        ),
                                       ),
                                       const Text("Wind speed",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12))
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                          fontFamily: 'Montserrat'
+                                        )
+                                      )
                                     ],
                                   ),
                                   const SizedBox(width: 70),
@@ -249,14 +263,20 @@ class _HomeState extends State<Home> {
                                             ? '${_weatherData!['rain']['1h']} mm'
                                             : '0 mm',
                                         style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Montserrat'
+                                        ),
                                       ),
-                                      const Text("Rain",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12))
+                                      const Text(
+                                        "Rain",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontFamily: 'Montserrat'
+                                          )
+                                        )
                                     ],
                                   ),
                                 ],

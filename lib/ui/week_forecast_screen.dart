@@ -127,15 +127,15 @@ class _WeeklyForecastState extends State<WeeklyForecast> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(day, style: const TextStyle(color: Colors.white, fontSize: 18)),
+                              Text(day, style: const TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Montserrat', fontWeight: FontWeight.w500)),
                               Row(
                                 children: [
                                   Icon(weatherIcon.icon, color: weatherIcon.color, size: 18),
                                   const SizedBox(width: 8),
-                                  Text(description, style: const TextStyle(color: Colors.white, fontSize: 16)),
+                                  Text(description, style: const TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Montserrat')),
                                 ],
                               ),
-                              Text('${temp.toStringAsFixed(0)}°', style: const TextStyle(color: Colors.white, fontSize: 48)),
+                              Text('${temp.toStringAsFixed(0)}°', style: const TextStyle(color: Colors.white, fontSize: 56, fontFamily: 'Rajdhani')),
                             ],
                           ),
                         );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:weather_app/models/city.dart';
 import 'package:weather_app/ui/home.dart';
 
@@ -15,7 +14,7 @@ class _WelcomeState extends State<Welcome> {
 
   @override
   Widget build(BuildContext context) {
-    List<City> cities = City.citiesList.where((city) => city.isDefault == false).toList();
+    List<City> cities = City.citiesList.where((city) => !city.isDefault).toList();
 
     Size size = MediaQuery.of(context).size;
 
@@ -23,7 +22,14 @@ class _WelcomeState extends State<Welcome> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 136, 71, 148),
-        title: Text(selectedCity != null ? selectedCity!.city : '', style: const TextStyle(color: Colors.white)),
+        title: Text(
+          selectedCity != null ? selectedCity!.city : '',
+          style: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -76,6 +82,7 @@ class _WelcomeState extends State<Welcome> {
                 Text(
                   cities[index].city,
                   style: TextStyle(
+                    fontFamily: 'Montserrat',
                     fontSize: 16,
                     color: selectedCity == cities[index]
                         ? const Color.fromARGB(255, 136, 71, 148)
@@ -91,7 +98,10 @@ class _WelcomeState extends State<Welcome> {
         backgroundColor: const Color.fromARGB(255, 136, 71, 148),
         child: const Icon(Icons.pin_drop),
         onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home(city: selectedCity)));
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Home(city: selectedCity)),
+          );
         },
       ),
     );
